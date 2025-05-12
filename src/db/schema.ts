@@ -1,0 +1,26 @@
+import { pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
+
+export const biotechCompanies = pgTable("biotech_companies", {
+  id: serial("id").primaryKey(),
+  companyName: varchar("company_name", { length: 255 }),
+  website: varchar("website", { length: 255 }),
+  jobDescriptionUrl: varchar("job_description_url", { length: 255 }),
+  jobDescriptionText: text("job_description_text"),
+  contactDate: timestamp("contact_date"),
+  city: varchar("city", { length: 100 }),
+  state: varchar("state", { length: 50 }),
+  zip: varchar("zip", { length: 20 }),
+  companyProducts: text("company_products"),
+  companyDescription: text("company_description"),
+  companySize: varchar("company_size", { length: 50 }),
+  companyType: varchar("company_type", { length: 50 }),
+  industry: varchar("industry", { length: 100 }),
+  foundedYear: varchar("founded_year", { length: 4 }),
+  headquarters: varchar("headquarters", { length: 255 }),
+  contactEmail: varchar("contact_email", { length: 255 }),
+  contactPhone: varchar("contact_phone", { length: 50 }),
+  applicationStatus: varchar("application_status", { length: 50 }),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
